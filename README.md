@@ -19,7 +19,9 @@ A multi-utility web app that changes modes based on your phone’s orientation a
 
 🌓 Dark/Light Mode – Toggleable themes.
 
+
 🛠️ Tech Stack
+
 
 HTML5 + CSS3 (UI/Animations)
 
@@ -29,7 +31,9 @@ OpenWeather API (live weather updates)
 
 Canvas Confetti library
 
+
 🚀 How it Works
+
 
 Rotate or shake your phone to switch between apps.
 
