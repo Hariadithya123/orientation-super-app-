@@ -69,20 +69,30 @@
       <div id="laps" class="laps"></div>
     </section>
 
-    <!-- Timer -->
-    <section id="timerPanel" class="panel hidden">
-      <h2 class="mode-title">⏱ Timer</h2>
-      <div class="row">
-        <input type="number" id="timerMinutes" placeholder="Minutes" min="0" inputmode="numeric">
-        <input type="number" id="timerSeconds" placeholder="Seconds" min="0" max="59" inputmode="numeric">
-      </div>
-      <div class="controls">
-        <button class="btn" id="startTimerBtn">Start</button>
-        <button class="btn" id="resetTimerBtn">Reset</button>
-      </div>
-      <div class="face" id="timerDisplay">00:00</div>
-      <audio id="timerSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
-    </section>
+<section id="timerPanel" class="panel hidden">
+  <h2 class="mode-title">⏱ Timer</h2>
+  <div class="face" id="timer-display">00:00:00</div>
+
+  <!-- Tabs -->
+  <div class="timer-tabs">
+    <button class="tab active" data-unit="hours">Hours</button>
+    <button class="tab" data-unit="minutes">Minutes</button>
+    <button class="tab" data-unit="seconds">Seconds</button>
+  </div>
+
+  <!-- Number keypad (0-9) -->
+  <div class="timer-keypad" id="timerKeypad"></div>
+
+  <div class="controls">
+    <button class="btn" id="startTimerBtn">Start</button>
+    <button class="btn" id="pauseTimerBtn">Pause</button>
+    <button class="btn" id="resetTimerBtn">Reset</button>
+  </div>
+
+  <audio id="timerSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+</section>
+
+
 
     <!-- Weather -->
     <section id="weatherPanel" class="panel hidden">
