@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Orientation Super App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Orientation Overlay -->
+  <div id="orientationOverlay" class="overlay">
+    <div class="overlay-card">
+      <h1>Enable Orientation</h1>
+      <p>This app changes modes based on how you hold or move your device.</p>
+      <ul class="legend">
+        <li>📱 <strong>Portrait Up</strong> → Alarm Clock</li>
+        <li>🔄 <strong>Portrait Down</strong> → Timer</li>
+        <li>➡️ <strong>Landscape Right</strong> → Stopwatch</li>
+        <li>⬅️ <strong>Landscape Left</strong> → Weather</li>
+        <li>🧭 <strong>Flat</strong> → Compass</li>
+        <li>🎯 <strong>Shake</strong> → Surprise Mode</li>
+      </ul>
+      <button id="enableOrientationBtn" class="btn primary">Enable Orientation</button>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span id="modeLabel">📡 Waiting for orientation...</span>
+    <div class="actions">
+      <button id="toggleTheme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+      <button id="helpBtn" class="icon-btn" title="Show guide" aria-label="Show help">❔</button>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <main id="app" class="app">
+
+    <!-- Compass -->
+    <section id="compassPanel" class="panel">
+      <h2 class="mode-title">🧭 Compass</h2>
+      <div class="face" id="compassDisplay">Calibrating…</div>
+    </section>
+
+    <!-- Alarm -->
+    <section id="alarmPanel" class="panel hidden">
+      <h2 class="mode-title">⏰ Alarm Clock</h2>
+      <div class="row">
+        <input type="time" id="alarmTime">
+      </div>
+      <div class="controls">
+        <button class="btn" id="setAlarmBtn">Set Alarm</button>
+        <button class="btn" id="clearAlarmBtn">Clear</button>
+      </div>
+      <div class="face" id="alarmStatus">No alarm set</div>
+      <audio id="alarmSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+    </section>
+
+    <!-- Stopwatch -->
+    <section id="stopwatchPanel" class="panel hidden">
+      <h2 class="mode-title">⏳ Stopwatch</h2>
+      <div class="face" id="stopwatchDisplay">00:00.00</div>
+      <div class="controls">
+        <button class="btn" id="startStopwatchBtn">Start</button>
+        <button class="btn" id="lapStopwatchBtn">Lap</button>
+        <button class="btn" id="resetStopwatchBtn">Reset</button>
+      </div>
+      <div id="laps" class="laps"></div>
+    </section>
+
+    <!-- Timer -->
+    <section id="timerPanel" class="panel hidden">
+      <h2 class="mode-title">⏱ Timer</h2>
+      <div class="row">
+        <input type="number" id="timerMinutes" placeholder="Minutes" min="0" inputmode="numeric">
+        <input type="number" id="timerSeconds" placeholder="Seconds" min="0" max="59" inputmode="numeric">
+      </div>
+      <div class="controls">
+        <button class="btn" id="startTimerBtn">Start</button>
+        <button class="btn" id="resetTimerBtn">Reset</button>
+      </div>
+      <div class="face" id="timerDisplay">00:00</div>
+      <audio id="timerSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+    </section>
+
+    <!-- Weather -->
+    <section id="weatherPanel" class="panel hidden">
+      <h2 class="mode-title">🌦 Weather</h2>
+      <div class="face" id="weatherInfo">Detecting your location…</div>
+    </section>
+
+    <!-- Surprise Mode -->
+    <section id="surprisePanel" class="panel hidden">
+      <h2 class="mode-title">🎉 Surprise Mode</h2>
+      <div class="face">Shake detected! Enjoy the confetti, color splash, and sound effect!</div>
+    </section>
+
+  </main>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="confetti"></canvas>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
